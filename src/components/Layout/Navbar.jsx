@@ -2,30 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { FaSearch, FaUser, FaRegHeart, FaShoppingCart, FaBars } from 'react-icons/fa';
 import { useCart } from '../../context/CartContext';
-import { mockApi } from '../../services/mockApi';
+import { NAV_CATEGORIES } from '../../data/categories';
 import logo from '../../assets/logo.jpg';
 
 export default function Navbar({ onOpenCart }) {
   const { totalItems } = useCart();
   const [searchQuery, setSearchQuery] = useState('');
   const [isScrolled, setIsScrolled] = useState(false);
-  const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
   const location = useLocation();
-
-  useEffect(() => {
-    const fetchCategories = async () => {
-      try {
-        const cats = await mockApi.getCategories();
-        if (Array.isArray(cats)) {
-          setCategories(cats);
-        }
-      } catch (err) {
-        console.error("Failed to load categories in Navbar:", err);
-      }
-    };
-    fetchCategories();
-  }, [location.pathname, location.search]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -161,7 +146,7 @@ export default function Navbar({ onOpenCart }) {
               <li className="nav-item">
                 <Link className={`nav-link ${isLinkActive('/shop') ? 'active' : ''}`} to="/shop">All Products</Link>
               </li>
-              {categories.map((cat) => (
+              {NAV_CATEGORIES.map((cat) => (
                 <li className="nav-item" key={cat}>
                   <Link
                     className={`nav-link ${isLinkActive('/shop', cat) ? 'active' : ''}`}

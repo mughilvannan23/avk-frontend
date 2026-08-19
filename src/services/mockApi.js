@@ -1,5 +1,6 @@
 import { productService } from './api';
 import { products as localProducts } from '../data/products';
+import { NAV_CATEGORIES } from '../data/categories';
 
 export const mockApi = {
   /**
@@ -90,26 +91,16 @@ export const mockApi = {
    * @returns {Promise<Array<string>>}
    */
   getCategories: async () => {
-    const DEFAULT_CATEGORIES = [
-      "Gods & Idols",
-      "Pooja Decor",
-      "Kitchen Utensils",
-      "Steel Vessels",
-      "Bronze",
-      "Furniture",
-      "Electronics"
-    ];
-
     try {
       const categories = await productService.getCategories();
       if (Array.isArray(categories)) {
-        return Array.from(new Set([...DEFAULT_CATEGORIES, ...categories])).filter(Boolean);
+        return Array.from(new Set([...NAV_CATEGORIES, ...categories])).filter(Boolean);
       }
     } catch (error) {
       console.warn("API getCategories Error, falling back to default categories:", error?.message || error);
     }
     const localCats = localProducts.map(p => p.category).filter(Boolean);
-    return Array.from(new Set([...DEFAULT_CATEGORIES, ...localCats])).filter(Boolean);
+    return Array.from(new Set([...NAV_CATEGORIES, ...localCats])).filter(Boolean);
   },
 
   /**
