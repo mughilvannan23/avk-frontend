@@ -1,0 +1,236 @@
+/* custom-bootstrap-overrides.css */
+
+/* Core Metallic Gold Theme Variables based on Golden Gradient Reference */
+:root {
+  /* Rich Metallic Gold Palette Stops */
+  --gold-light: #FCF6BA;
+  --gold-shine: #FBF5B7;
+  --gold-mid: #BF953F;
+  --gold-deep: #B38728;
+  --gold-dark: #AA771C;
+  --gold-shadow: #8A5A00;
+
+  /* Multi-Stop Metallic Gold Linear & Horizontal Gradients */
+  --gold-gradient: linear-gradient(135deg, #BF953F 0%, #FCF6BA 25%, #B38728 50%, #FBF5B7 75%, #AA771C 100%);
+  --gold-gradient-hover: linear-gradient(135deg, #AA771C 0%, #FBF5B7 25%, #BF953F 50%, #FCF6BA 75%, #B38728 100%);
+  --gold-gradient-horizontal: linear-gradient(90deg, #BF953F 0%, #FCF6BA 20%, #B38728 50%, #FBF5B7 80%, #AA771C 100%);
+  --gold-gradient-radial: radial-gradient(circle at 50% 50%, #FCF6BA 0%, #BF953F 50%, #AA771C 100%);
+  --gold-gradient-subtle: linear-gradient(135deg, rgba(191, 149, 63, 0.15) 0%, rgba(252, 246, 186, 0.3) 50%, rgba(170, 119, 28, 0.15) 100%);
+
+  /* Global Theme Tokens */
+  --primary-accent: #B38728;
+  --gold-accent: #BF953F;
+  --bg-cream: #FAF8F4;
+  --text-dark: #2A2418;
+  --text-light: #ffffff;
+}
+
+/* Custom Metallic Gold Buttons */
+.btn-luxury,
+.btn-gold,
+.btn-primary {
+  background: var(--gold-gradient) !important;
+  color: #1A1408 !important;
+  border: 1px solid #BF953F !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  border-radius: 0;
+  padding: 0.6rem 1.5rem;
+  box-shadow: 0 4px 15px rgba(170, 119, 28, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-luxury:hover,
+.btn-luxury:focus,
+.btn-luxury:active,
+.btn-gold:hover,
+.btn-gold:focus,
+.btn-gold:active,
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background: var(--gold-gradient-hover) !important;
+  color: #000000 !important;
+  border-color: #FCF6BA !important;
+  box-shadow: 0 6px 20px rgba(170, 119, 28, 0.45);
+  transform: translateY(-2px);
+}
+
+/* Outline Metallic Gold Buttons */
+.btn-luxury-outline,
+.btn-gold-outline,
+.btn-outline-primary {
+  background-color: transparent !important;
+  color: #8A5A00 !important;
+  border: 2px solid #BF953F !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  border-radius: 0;
+  padding: 0.6rem 1.5rem;
+}
+
+.btn-luxury-outline:hover,
+.btn-luxury-outline:focus,
+.btn-gold-outline:hover,
+.btn-gold-outline:focus,
+.btn-outline-primary:hover,
+.btn-outline-primary:focus {
+  background: var(--gold-gradient) !important;
+  color: #1A1408 !important;
+  border-color: #BF953F !important;
+  box-shadow: 0 4px 15px rgba(170, 119, 28, 0.3);
+  transform: translateY(-2px);
+}
+
+/* Form Controls and Search Input Customization */
+.form-control-luxury {
+  background-color: #ffffff;
+  border: 1.5px solid #E6DCB8;
+  color: var(--text-dark);
+  border-radius: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  padding: 0.6rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-control-luxury:focus {
+  border-color: #BF953F;
+  box-shadow: 0 0 0 0.25rem rgba(191, 149, 63, 0.25);
+  outline: none;
+  background-color: #ffffff;
+}
+
+/* Custom Checkboxes for Shop Filtering */
+.form-check-input-luxury {
+  border-radius: 0 !important;
+  border: 1.5px solid #BF953F !important;
+  background-color: transparent;
+  transition: all 0.2s ease;
+}
+
+.form-check-input-luxury:checked {
+  background: var(--gold-gradient) !important;
+  border-color: #BF953F !important;
+  box-shadow: none !important;
+}
+
+.form-check-input-luxury:focus {
+  box-shadow: 0 0 0 0.2rem rgba(191, 149, 63, 0.25) !important;
+}
+
+/* Offcanvas Cart Customization */
+.offcanvas {
+  background-color: #FAF8F4;
+  color: var(--text-dark);
+  font-family: 'Poppins', sans-serif;
+}
+
+.offcanvas-header {
+  border-bottom: 2px solid;
+  border-image: var(--gold-gradient-horizontal) 1;
+}
+
+/* Custom Scrollbar for Offcanvas and Cart List */
+.offcanvas-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.offcanvas-body::-webkit-scrollbar-track {
+  background: #FAF8F4;
+}
+
+.offcanvas-body::-webkit-scrollbar-thumb {
+  background: var(--gold-gradient);
+  border-radius: 3px;
+}
+
+/* Accordion Customization matching reference screenshots */
+.accordion-luxury {
+  --bs-accordion-bg: #ffffff;
+  --bs-accordion-color: var(--text-dark);
+  --bs-accordion-border-color: rgba(191, 149, 63, 0.3);
+  --bs-accordion-btn-bg: #ffffff;
+  --bs-accordion-btn-color: var(--text-dark);
+  --bs-accordion-active-bg: rgba(252, 246, 186, 0.2);
+  --bs-accordion-active-color: #AA771C;
+}
+
+.accordion-luxury .accordion-item {
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid rgba(191, 149, 63, 0.25);
+  background-color: #ffffff;
+}
+
+.accordion-luxury .accordion-button {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 1.25rem 1rem;
+}
+
+.accordion-luxury .accordion-button:not(.collapsed) {
+  background: var(--gold-gradient-subtle);
+  color: #8A5A00;
+  box-shadow: none;
+}
+
+/* Custom expand icon (+ / -) indicator on accordion header matching reference screenshot */
+.accordion-luxury .accordion-button::after {
+  background-image: none !important;
+  content: '+';
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 300;
+  color: #B38728;
+  width: auto;
+  height: auto;
+  transform: none !important;
+  transition: transform 0.2s ease;
+}
+
+.accordion-luxury .accordion-button:not(.collapsed)::after {
+  content: '−';
+  font-weight: 600;
+  color: #AA771C;
+}
+
+/* Breadcrumb Styling */
+.breadcrumb-luxury {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb-luxury a {
+  color: var(--text-dark);
+  text-decoration: none;
+  opacity: 0.75;
+  transition: all 0.2s;
+}
+
+.breadcrumb-luxury a:hover {
+  opacity: 1;
+  color: #AA771C;
+}
+
+.breadcrumb-luxury .breadcrumb-item.active {
+  color: #AA771C;
+  font-weight: 600;
+}
+
+.breadcrumb-item+.breadcrumb-item::before {
+  content: ">" !important;
+  color: #BF953F !important;
+  font-size: 0.75rem;
+  vertical-align: middle;
+}
